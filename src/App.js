@@ -16,7 +16,7 @@ class App extends Component{
   }
 
   componentDidMount() {
-    Axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    Axios.get('https://jsonplaceholder.typicode.com/todos?_limit=7')
       .then(res => {
         this.setState({ todos: res.data });
       })
@@ -58,7 +58,7 @@ class App extends Component{
             <AddTodo
               addTodo={this.addTodo}
             />
-            <Todos 
+            <Todos
               todos={this.state.todos} 
               markComplete={this.markComplete}
               delTodo={this.delTodo}

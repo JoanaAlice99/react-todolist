@@ -6,12 +6,14 @@ class Todos extends Component{
 
     render(){
         return this.props.todos.map((todo) => (
-            <TodoItem 
-                key={todo.id}
-                todo={todo}
-                markComplete={this.props.markComplete} 
-                delTodo={this.props.delTodo}
-            />
+            <div style={todosStyle}>
+                <TodoItem 
+                    key={todo.id}
+                    todo={todo}
+                    markComplete={this.props.markComplete} 
+                    delTodo={this.props.delTodo}
+                />
+            </div>
         ));
     }
 
@@ -22,6 +24,11 @@ Todos.protoTypes = {
     todos: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     delTodo: PropTypes.func.isRequired
+}
+
+const todosStyle = {
+    margin: "auto",
+    width: "75%"
 }
 
 export default Todos;

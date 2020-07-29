@@ -6,17 +6,19 @@ export class TodoItem extends Component {
     getStyle = (completed) => {
         if (completed) {
             return {
-                background: '#f4f4f4',
-                padding: '10px',
-                borderBottom: '1px #ccc dotted',
-                textDecoration: 'line-through'
+                background: 'white',
+                color: "#c7c7c7",
+                padding: '20px',
+                border: "0px",
+                transition: '0.5s'
             }
         } else {
             return {
-                background: '#f4f4f4',
-                padding: '10px',
-                borderBottom: '1px #ccc dotted',
-                textDecoration: 'none'
+                background: 'white',
+                color: "black",
+                padding: '20px',
+                border: "0px",
+                transition: '0.5s'
             }
         }
     }
@@ -26,16 +28,25 @@ export class TodoItem extends Component {
         return (
             <div style={this.getStyle(this.props.todo.completed)}>
                 <p>
-                    <input 
-                        type="checkbox" 
-                        onChange={this.props.markComplete.bind(this,id)} 
-                    />
-                    {' '}{title}
-                    <button 
-                        style={btnStyle} 
-                        onClick={this.props.delTodo.bind(this, id)}>
-                    x
-                    </button>
+
+                    <label class="container">
+
+                        <input
+                            type="checkbox" 
+                            onChange={this.props.markComplete.bind(this,id)} 
+                        />
+                        <span className="checkmark"></span>
+
+                        {' '}{title}
+
+                        <button 
+                            className="btnStyle"
+                            onClick={this.props.delTodo.bind(this, id)}>
+                        x
+                        </button>
+
+                    </label>
+
                 </p>   
             </div>
         )
@@ -48,15 +59,6 @@ TodoItem.protoTypes = {
     todos: PropTypes.array.isRequired,
     markComplete: PropTypes.func.isRequired,
     delTodo: PropTypes.func.isRequired
-}
-
-const btnStyle = {
-    background: '#ff0000',
-    color: '#fff',
-    border: 'none',
-    padding: '7px 10px',
-    borderRadius: '50%',
-    float: 'right'
 }
 
 export default TodoItem
