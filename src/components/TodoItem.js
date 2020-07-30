@@ -29,7 +29,7 @@ export class TodoItem extends Component {
             <div style={this.getStyle(this.props.todo.completed)}>
                 <p>
 
-                    <label class="container">
+                    <label className="container">
 
                         <input
                             type="checkbox" 
